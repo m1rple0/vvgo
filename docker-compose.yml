@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  clv-predictor:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: clv-predictor-api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Монтируем директорию с моделями (не включаем в образ)
+      - ./models:/app/models
+      # Монтируем данные для обучения (опционально)
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+# Если нужно добавить базу данных или другие сервисы:
+#   postgres:
+#     image: postgres:15
+#     ...
