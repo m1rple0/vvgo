@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field, validator
 from typing import Optional
 
 class PredictRequest(BaseModel):
-    """Схема запроса для прогнозирования"""
+    #zapros
     recency: int = Field(..., ge=0, description="Дней с последней покупки (0-365)")
     frequency: int = Field(..., ge=1, description="Количество покупок за весь период")
     monetary: float = Field(..., ge=0, description="Общая сумма покупок (в рублях)")
@@ -26,23 +26,20 @@ class PredictRequest(BaseModel):
         return v
 
 class PredictResponse(BaseModel):
-    """Схема ответа на запрос прогнозирования"""
+    #otvet
     clv: float = Field(..., description="Прогнозируемая ценность клиента (CLV) в рублях")
     segment: str = Field(..., description="Сегмент клиента")
     clv_log: float = Field(..., description="Логарифмированное значение CLV")
     details: Optional[dict] = Field(None, description="Дополнительная информация")
 
 class BatchPredictRequest(BaseModel):
-    """Схема для пакетного прогнозирования"""
     data: list[PredictRequest]
 
 class BatchPredictResponse(BaseModel):
-    """Схема ответа на пакетный запрос"""
     results: list[PredictResponse]
     count: int
 
 class HealthResponse(BaseModel):
-    """Схема проверки здоровья сервиса"""
     status: str
     model_loaded: bool
     version: str

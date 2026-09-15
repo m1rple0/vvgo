@@ -1,38 +1,95 @@
-# Виртуальное окружение
+# ===== Виртуальные окружения =====
 venv/
-env/
+venv311/
 .venv/
+env/
+ENV/
 
-# Данные (большие файлы)
-data/
-*.xlsx
-*.csv
-
-# Python
+# ===== Python =====
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
+*.py[cod]
+*$py.class
 *.so
-*.egg
-*.egg-info/
-dist/
+.Python
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# IDE
+# ===== PyTorch / ML =====
+*.pth
+*.pkl
+*.h5
+*.onnx
+*.pt
+
+# ===== Данные =====
+data/*.xlsx
+data/*.xls
+data/*.csv
+data/*.zip
+data/*.tar.gz
+!data/.gitkeep
+
+# ===== Jupyter Notebook =====
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ===== Тесты и покрытие =====
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ===== IDE и редакторы =====
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+.project
+.pydevproject
+.settings/
 
-# OS
+# ===== Операционные системы =====
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Логи
+# ===== Логи и временные файлы =====
 *.log
-
-# Временные файлы
+logs/
+tmp/
+temp/
+trash/
 *.tmp
-*.temp
+
+# ===== Переменные окружения =====
+.env
+.env.local
+.env.*.local
+
+# ===== Docker =====
+# (оставляем Dockerfile и docker-compose.yml — они должны быть в репо)
+
+# ===== Прочее =====
+*.bak
+*.backup

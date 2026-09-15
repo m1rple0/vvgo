@@ -16,8 +16,3 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
     restart: unless-stopped
-
-# Если нужно добавить базу данных или другие сервисы:
-#   postgres:
-#     image: postgres:15
-#     ...
